@@ -2,7 +2,6 @@
 flask
 gunicorn
 itsdangerous
-Jinja
 MarkupSafe
 Werkzeug
 wheel
