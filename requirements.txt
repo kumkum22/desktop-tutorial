@@ -1,4 +1,8 @@
-django
+
 flask
 gunicorn
-django-heroku
+itsdangerous
+Jinja
+MarkupSafe
+Werkzeug
+wheel
