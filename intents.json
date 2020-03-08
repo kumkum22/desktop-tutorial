@@ -1,0 +1,32 @@
+{
+    "intents":[
+        {
+            "tag":"greeting",
+            "patterns":["Hi","Hello"],
+            "responses":["Hi there", "Hello to u"],
+            "context-set":""
+        },
+
+        {
+            "tag":"goodbye",
+            "patterns":["bye","goodbye"],
+            "responses":["talk to u later", "cya"],
+            "context-set":""
+        },
+        {
+            "tag":"well",
+            "patterns":["how are you ?","whats up ?"],
+            "responses":["I am great", "doing fine"],
+            "context-set":""
+        },
+
+        {
+            "tag":"sell",
+            "patterns":["what are you selling","what is this website"],
+            "responses":["we sell goods", "furniture, electronics etc"],
+            "context-set":""
+        }
+        
+
+    ]
+}
