@@ -24,8 +24,9 @@ def index():
 @app.route('/process', methods=['POST'])
 def process():
     user_input = request.form['user_input']
-    return render_template('quit.html')
-    chat(user_input)
+    # chat(user_input)
+    bot_response = chat(user_input)
+    return render_template('index.html', user_input=user_input, bot_response=bot_response)
 
 #################################
 
@@ -145,7 +146,7 @@ def bag_of_words(s, words):
 
 
 def chat(user_input):
-
+    bot_response = ""
     try:
         print("Start talking with the bot !! Press q to quit ")
         print("You :"+user_input)
@@ -153,8 +154,9 @@ def chat(user_input):
             #inp=input("You: ")
             if user_input.lower() == "q":
                 print("You quit the chat")
-                return render_template('quit.html') 
-                #break
+                return "You quit the chat"
+                #return render_template('quit.html')
+                # break
 
             results = model.predict([bag_of_words(user_input, words)])
             arr_result = results[0]
@@ -182,17 +184,23 @@ def chat(user_input):
 
                         bot_response = str(rand_response)
                         print("Bot: "+bot_response)
-                        return render_template('index.html', user_input=user_input, bot_response=bot_response)
+                        #return render_template('index.html', user_input=user_input, bot_response=bot_response)
+                        return bot_response
                     else:
                         print("Tag not found "+bot_response)
-                        return render_template('index.html', user_input=user_input, bot_response="Sorry, I do not understand")
+                        #return render_template('index.html', user_input=user_input, bot_response="Sorry, I do not understand")
+                        return bot_response
 
             else:
                 bot_response = "Sorry, I do not understand"
                 print("Bot: "+bot_response)
-                return render_template('index.html', user_input=user_input, bot_response=bot_response)
+                #return render_template('index.html', user_input=user_input, bot_response=bot_response)
+                return bot_response
+
     except TypeError:
         print("A TypeError exception occurred")
+        #return render_template('quit.html')
+        return bot_response
 
 
 if __name__ == '__main__':
