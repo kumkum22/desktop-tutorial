@@ -175,6 +175,7 @@ def chat(user_input):
                 print('arr_result[results_index]>0.6 ' +
                       str(arr_result[results_index]))
                 # get a random response from the json file
+                print("above for loop")
                 for tg in data["intents"]:
                     print(tg)
                     if tg['tag'] == tag:
@@ -186,10 +187,7 @@ def chat(user_input):
                         print("Bot: "+bot_response)
                         #return render_template('index.html', user_input=user_input, bot_response=bot_response)
                         return bot_response
-                    else:
-                        print("Tag not found "+bot_response)
-                        #return render_template('index.html', user_input=user_input, bot_response="Sorry, I do not understand")
-                        return bot_response
+                    
 
             else:
                 bot_response = "Sorry, I do not understand"
